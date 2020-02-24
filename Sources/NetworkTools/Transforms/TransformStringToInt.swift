@@ -1,6 +1,6 @@
 //
 //  TransformStringToInt.swift
-//  AlamofireTools
+//  NetworkTools
 //
 //  Created by Vitalis on 12/02/2020.
 //  Copyright © 2019 Neiron Digital. All rights reserved.
