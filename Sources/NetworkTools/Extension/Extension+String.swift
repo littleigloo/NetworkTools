@@ -8,11 +8,28 @@
 
 import Foundation
 import ObjectMapper
-
 // ...........
 
 public extension String {
+    // ...........
+    
     func to<T: Mappable>(mappableType: T.Type) -> T? {
         return Mapper<T>().map(JSONString: self)
+    }
+    // ...........
+    
+    // Returns a URL from string if conversion is possible or nil
+    var asURL: URL? {
+        
+        guard !self.isEmpty else {
+            return nil
+        }
+        
+        guard let url = URL(stringToEncode: self) else {
+            print("COULD NOT CREATE URL")
+            return nil
+        }
+        
+        return url
     }
 }

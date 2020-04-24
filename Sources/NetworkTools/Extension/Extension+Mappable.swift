@@ -8,7 +8,6 @@
 
 import Foundation
 import ObjectMapper
-
 // ...........
 
 public extension Mappable {
