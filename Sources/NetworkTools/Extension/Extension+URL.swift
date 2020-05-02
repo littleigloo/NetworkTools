@@ -10,15 +10,12 @@ import Foundation
 // ...........
 
 public extension URL {
-    
     // Encodes a string and returns URL
     init?(stringToEncode: String) {
-        
         guard let urlwithPercentEscapes = stringToEncode.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) else {
             print("COULD NOT ENCODE URL STRING")
             return nil
         }
-        
         self.init(string: urlwithPercentEscapes)
     }
 }

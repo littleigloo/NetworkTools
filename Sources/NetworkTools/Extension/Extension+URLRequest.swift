@@ -10,13 +10,11 @@ import Foundation
 import ObjectMapper
 // ...........
 
-public extension Mappable {
-    var asString: String? {
-        // Convert to raw string
-        guard let JSONString = Mapper().toJSONString(self) else {
-            print("COULD NOT CONVERT MAPPABLE TO RAW STRING")
-            return nil
+public extension URLRequest {
+    // Simple headers adding function
+    mutating func addExtraHeaders(extraHeaders: [String: String]) {
+        for (key, value) in extraHeaders {
+            self.setValue( key, forHTTPHeaderField: value)
         }
-        return JSONString
     }
 }
