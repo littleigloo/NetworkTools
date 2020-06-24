@@ -16,9 +16,15 @@ open class TransformBool: TransformType {
     public typealias Object = Bool
     public typealias JSON = String
     
+    //  MARK: - PROPERTIES 🔰 PRIVATE
+    // ////////////////////////////////////
+    let defaultValue: Bool?
+    
     //  MARK: - INITS
     // ////////////////////////////////////
-    public init() {}
+    public init(defaultValue: Bool? = nil) {
+        self.defaultValue = defaultValue
+    }
     
     //  MARK: - METHODS
     // ////////////////////////////////////
@@ -28,7 +34,7 @@ open class TransformBool: TransformType {
         }
         if value is Int {
             guard let intValue = value as? Int else {
-                return nil
+                return defaultValue
             }
             switch intValue {
             case 0:
@@ -37,12 +43,12 @@ open class TransformBool: TransformType {
                 return true
             default:
                 print("UNEXPECTED BOOLEAN DESCRIPTOR")
-                return nil
+                return defaultValue
             }
         }
         if value is String {
             guard let stringValue = value as? String else {
-                return nil
+                return defaultValue
             }
             switch stringValue {
             case "0", "false":
@@ -51,11 +57,11 @@ open class TransformBool: TransformType {
                 return true
             default:
                 print("UNEXPECTED BOOLEAN DESCRIPTOR")
-                return nil
+                return defaultValue
             }
         }
         print("COULD NOT TRANSFORM TO BOOL")
-        return nil
+        return defaultValue
     }
     // ...........
     
