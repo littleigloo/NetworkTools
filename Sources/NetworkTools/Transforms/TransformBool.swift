@@ -10,21 +10,15 @@ import Foundation
 import ObjectMapper
 // ...........
 
-open class TransformBool: TransformType {
+open class  TransformBool: TransformType {
     //  MARK: - TYPEALIASES
     // ////////////////////////////////////
     public typealias Object = Bool
     public typealias JSON = String
     
-    //  MARK: - PROPERTIES 🔰 PRIVATE
-    // ////////////////////////////////////
-    let defaultValue: Bool?
-    
     //  MARK: - INITS
     // ////////////////////////////////////
-    public init(defaultValue: Bool? = nil) {
-        self.defaultValue = defaultValue
-    }
+    public init() {}
     
     //  MARK: - METHODS
     // ////////////////////////////////////
@@ -34,7 +28,7 @@ open class TransformBool: TransformType {
         }
         if value is Int {
             guard let intValue = value as? Int else {
-                return defaultValue
+                return nil
             }
             switch intValue {
             case 0:
@@ -43,12 +37,12 @@ open class TransformBool: TransformType {
                 return true
             default:
                 print("UNEXPECTED BOOLEAN DESCRIPTOR")
-                return defaultValue
+                return nil
             }
         }
         if value is String {
             guard let stringValue = value as? String else {
-                return defaultValue
+                return nil
             }
             switch stringValue {
             case "0", "false":
@@ -57,11 +51,11 @@ open class TransformBool: TransformType {
                 return true
             default:
                 print("UNEXPECTED BOOLEAN DESCRIPTOR")
-                return defaultValue
+                return nil
             }
         }
         print("COULD NOT TRANSFORM TO BOOL")
-        return defaultValue
+        return nil
     }
     // ...........
     

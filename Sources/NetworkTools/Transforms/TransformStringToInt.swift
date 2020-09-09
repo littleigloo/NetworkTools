@@ -1,5 +1,5 @@
 //
-//  TransformGeneric.swift
+//  TransformStringToInt.swift
 //  NetworkTools
 //
 //  Created by Vitalis on 14/4/20.
@@ -10,34 +10,30 @@ import Foundation
 import ObjectMapper
 // ...........
 
-public class TransformStringToURL: TransformType {
+public class TransformStringToInt: TransformType {
     //  MARK: - TYPEALIASES
     // ////////////////////////////////////
-    public typealias Object = URL
-    public typealias JSON = String
-    
+    public typealias Object = Int
+    public typealias JSON = Int
     //  MARK: - INITS
     // ////////////////////////////////////
     public init() {}
-    
     //  MARK: - METHODS
     // ////////////////////////////////////
-    public func transformFromJSON(_ value: Any?) -> URL? {
+    public func transformFromJSON(_ value: Any?) -> Int? {
+        if value is Int {
+            return value as? Int
+        }
         guard let stringValue = value as? String else {
             print("NO value OR NOT String")
             return nil
         }
-        guard let url = stringValue.asURL else {
-            print("COULD NOT CREATE URL")
-            return nil
-        }
-        return url
+        return Int(stringValue)
     }
     // ...........
-    
-    public func transformToJSON(_ value: URL?) -> String? {
-        if let urlValue = value {
-            return urlValue.absoluteString
+    public func transformToJSON(_ value: Int?) -> Int? {
+        if let intValue = value {
+            return intValue
         }
         return nil
     }
