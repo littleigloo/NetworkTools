@@ -6,7 +6,7 @@
 //  Copyright © 2019 Neiron Digital. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Alamofire
 
 // ...........
