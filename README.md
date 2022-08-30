@@ -1,7 +1,7 @@
 # NetworkTools
 
 <p align="center">
-<img src="Images/coverImage4.png" width="250"/>
+<img src="Images/coverImage1.png" width="200"/>
 </p>
 
 <p align="center">
@@ -18,6 +18,10 @@ Network tools for using with Alamofire + ObjectMapper.
 ## Installation
 
 Use `Swift Package Manager` to install.
+
+## Credits
+
+Icon by [Freepik - Flaticon](https://www.flaticon.com).
 
 ## License
 
